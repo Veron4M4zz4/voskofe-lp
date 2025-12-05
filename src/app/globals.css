@@ -3,12 +3,23 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --purple-primary: #3a0659;
+  --white-primary: #f5f3ed;
+  --yellow-primary: #ffc05c;
+  --orange-primary: #f24405;
+  --white-secondary: #bebebe;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-georama);
+
+  --color-purple-primary: var(--purple-primary);
+  --color-white-primary: var(--white-primary);
+  --color-yellow-primary: var(--yellow-primary);
+  --color-orange-primary: var(--orange-primary);
+  --color-white-secondary: var(--white-secondary);
 }
 
 @media (prefers-color-scheme: dark) {
