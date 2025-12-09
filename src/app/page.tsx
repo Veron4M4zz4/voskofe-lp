@@ -1,140 +1,67 @@
 "use client";
 
+import ContactForm from "@/components/contact-form";
+import { QuintaSessao } from "@/components/fifth-section";
 import Image from "next/image";
-import { useState } from "react";
-
-/* ===== DADOS DA 5ª SESSÃO ===== */
-
-const WORKS = [
-  { id: 1, category: "Brand", image: "/works/work1.jpg" },
-  { id: 2, category: "UX/UI", image: "/works/work2.jpg" },
-  { id: 3, category: "Landing", image: "/works/work3.jpg" },
-  { id: 4, category: "Sistemas", image: "/works/work4.jpg" },
-  { id: 5, category: "Brand", image: "/works/work5.jpg" },
-  { id: 6, category: "UX/UI", image: "/works/work6.jpg" },
-  { id: 7, category: "Landing", image: "/works/work7.jpg" },
-  { id: 8, category: "Sistemas", image: "/works/work8.jpg" },
-];
-
-const FILTERS = ["Todos", "Brand", "UX/UI", "Landing", "Sistemas"];
-
-/* ===== COMPONENTE DA 5ª SESSÃO ===== */
-
-function QuintaSessao() {
-  const [active, setActive] = useState("Todos");
-
-  const filtered =
-    active === "Todos" ? WORKS : WORKS.filter((w) => w.category === active);
-
-  return (
-    <section className="w-full bg-[#F0540C] py-20 text-white">
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-4">
-        {/* TÍTULO */}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-center">
-          Confira nossos trabalhos
-        </h2>
-
-        {/* FILTROS */}
-        <div className="flex flex-wrap justify-center gap-4">
-          {FILTERS.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActive(f)}
-              className={`px-4 py-2 rounded-full text-sm font-medium border border-white/40 transition-all duration-200 ${
-                active === f
-                  ? "bg-[#5122B0] text-white shadow-[0_8px_20px_rgba(0,0,0,0.4)]"
-                  : "bg-white/10 hover:bg-white/20"
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
-
-        {/* GRID DE TRABALHOS */}
-        <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {filtered.map((item) => (
-            <div
-              key={item.id}
-              className="relative h-[260px] w-full overflow-hidden rounded-3xl bg-black shadow-[0_12px_30px_rgba(0,0,0,0.45)]"
-            >
-              <Image
-                src={item.image}
-                alt={item.category}
-                fill
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ===== PÁGINA PRINCIPAL ===== */
 
 export default function Home() {
   return (
     <main className="bg-[#2B0050] text-white flex flex-col items-center">
       {/* PRIMEIRA SESSÃO (HEADER + HERO) */}
-      <div className="w-full max-w-6xl px-4 md:px-6 lg:px-0 py-8 min-h-screen">
+      <div className="w-full max-w-7xl px-4 md:px-8 lg:px-12 py-8 min-h-screen">
         {/* NAVBAR EM CÁPSULA */}
-        <header className="flex justify-center">
+        <header className="flex justify-center mb-16 md:mb-20">
           <div className="flex w-full items-center justify-between rounded-full bg-white/95 px-5 md:px-8 py-3 shadow-[0_14px_40px_rgba(0,0,0,0.35)]">
             {/* Logo */}
             <div className="flex items-center gap-2">
               <Image
                 src="/logo-voskofe.svg"
                 alt="Voskofe"
-                width={120}
-                height={32}
-                className="h-8 w-auto"
+                width={187}
+                height={42}
+                className="h-8 w-auto cursor-pointer"
               />
             </div>
 
             {/* Links */}
-            <nav className="hidden md:flex items-center gap-8 text-sm text-[#3A245F] font-medium">
-              <button className="hover:text-[#FF7A29] transition-colors">
+            <nav className="hidden md:flex items-center gap-10 text-lg text-[#3A245F] font-semibold">
+              <button className="hover:text-[#FF7A29] transition-colors cursor-pointer">
                 Serviços
               </button>
-              <button className="hover:text-[#FF7A29] transition-colors">
+              <button className="hover:text-[#FF7A29] transition-colors cursor-pointer">
                 Portfólio
               </button>
-              <button className="hover:text-[#FF7A29] transition-colors">
+              <button className="hover:text-[#FF7A29] transition-colors cursor-pointer">
                 Valores
               </button>
             </nav>
 
             {/* CTA */}
-            <button className="rounded-full bg-gradient-to-r from-[#FF7A29] to-[#FFB445] px-5 py-2 text-sm font-semibold text-white shadow-md hover:brightness-110 transition">
+            <button className="rounded-full bg-linear-to-r from-[#FF7A29] to-[#FFB445] px-5 py-2 text-sm font-semibold text-white shadow-md hover:brightness-110 hover:shadow-lg transition cursor-pointer">
               Fale com a gente
             </button>
           </div>
         </header>
 
-        {/* HERO */}
-        <section className="relative mt-16 grid gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-center">
+        <section className="relative mt-8 md:mt-16 grid gap-12 grid-cols-[1.1fr_1fr] items-center">
           {/* K gigante no fundo */}
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center -z-10">
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center -z-">
             <Image
               src="/k-background.svg"
               alt=""
               width={520}
               height={520}
-              className="opacity-[0.07] hidden md:block"
+              className="opacity-[0.5]"
             />
           </div>
 
           {/* Coluna esquerda */}
-          <div className="space-y-6">
-            <div className="text-6xl md:text-7xl font-extrabold leading-none tracking-tight">
-              <p className="text-[#FF9A3C]">VOS</p>
-              <p className="text-[#FF9A3C]">KO</p>
-              <p className="text-[#FF9A3C]">FE.</p>
+          <div className="space-y-8 md:space-y-10">
+            <div className="text-[clamp(4rem,12vw,7rem)] font-extrabold leading-[0.85] tracking-tight">
+              <Image src="/VOS-KO-FE.svg" alt="" width={219} height={265} />
             </div>
 
-            <p className="max-w-md text-sm md:text-base text-[#F1DFFB]">
+            <p className="max-w-[187px] text-balance text-[#F1DFFB] text-base leading-relaxed md:text-[15px]">
               Acelere o início de qualquer projeto com soluções completas e um
               atendimento direto ao ponto. Organize melhor suas ideias,
               economize tempo e entregue com mais confiança.
@@ -142,8 +69,8 @@ export default function Home() {
           </div>
 
           {/* Coluna direita */}
-          <div className="text-right md:text-left md:pl-8 space-y-4">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug">
+          <div className="text-right md:pl-8 space-y-4">
+            <h1 className="text-balance text-[clamp(1.75rem,4vw,2.5rem)] font-medium leading-[1.2]">
               <span>Transformamos ideias em </span>
               <span className="block md:inline font-extrabold text-[#FF9A3C]">
                 produtos digitais que funcionam.
@@ -153,74 +80,74 @@ export default function Home() {
         </section>
       </div>
 
-      {/* SEGUNDA SESSÃO */}
-      <section className="relative w-full min-h-[80vh] bg-[#F2B24C] flex items-center justify-center text-[#2A0055]">
-        {/* Textos dos cantos */}
-        <div className="absolute top-10 left-10 text-xs leading-tight font-medium">
+      {/* SEGUNDA SESSÃO (Design de Marca) */}
+      <section className="relative w-full min-h-[85vh] bg-[#F2B24C] flex items-center justify-center text-[#2A0055] px-4">
+        {/* Textos dos cantos (Adicionado hidden mobile do Page 2 para limpeza) */}
+
+        <div className="absolute top-10 left-10 block text-sm sm:text-lg leading-3 sm:leading-4 font-medium lg:top-12 lg:left-12">
           <p>projetos incomuns para</p>
           <p>empresas incomuns</p>
         </div>
 
-        <div className="absolute top-10 right-10 text-xs leading-tight font-medium">
+        <div className="absolute top-10 right-10 block text-sm sm:text-lg leading-3 sm:leading-4 font-medium lg:top-12 lg:right-12">
           <p>criatividade + estratégia</p>
           <p>+ funcionalidade</p>
         </div>
 
-        <div className="absolute bottom-10 left-10 text-xs leading-tight font-medium">
+        <div className="absolute bottom-10 left-10 block text-sm sm:text-lg leading-3 sm:leading-4 font-medium lg:bottom-12 lg:left-12">
           <p>metodologia</p>
           <p>check</p>
         </div>
 
-        <div className="absolute bottom-10 right-10 text-xs leading-tight font-medium">
+        <div className="absolute bottom-10 right-10 block text-sm sm:text-lg leading-3 sm:leading-4 font-medium lg:bottom-12 lg:right-12">
           <p>quero ter um</p>
           <p>branding incomum</p>
         </div>
 
-        {/* TÍTULO CENTRAL */}
-        <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight text-[#2A0055]">
+        {/* TÍTULO CENTRAL (Tipografia Fluida) */}
+        <h2 className="text-center text-[clamp(3rem,5vw,7rem)] font-black tracking-tight text-[#2A0055] leading-none">
           DESIGN DE MARCA
         </h2>
       </section>
 
       {/* TERCEIRA SESSÃO – CASES */}
-      <section className="w-full bg-[#F7F3EC] py-16 md:py-20">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 md:px-6 lg:px-0">
+      <section className="w-full bg-[#F7F3EC] py-16 md:py-24">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 md:px-8">
           {/* TÍTULO + SUBTÍTULO */}
           <header>
-            <p className="text-xs uppercase tracking-[0.16em] text-[#7C659D]">
+            <p className="text-sm font-semibold tracking-widest text-[#926FA6]">
               Confira nossos cases
             </p>
-            <h2 className="mt-2 text-3xl md:text-4xl font-extrabold text-[#2D0056]">
+            <h2 className="mt-2 text-balance text-[clamp(1.75rem,4vw,3rem)] font-bold leading-tight text-[#3A0659]">
               Transformamos ideias em produtos de impacto.
             </h2>
           </header>
 
-          {/* TABS */}
-          <div className="border-b border-[#C99AF5] flex gap-6 text-sm font-medium text-[#7C659D]">
-            <button className="relative pb-3 text-[#3C0070]">
+          {/* TABS (Estilo refinado) */}
+          <div className="flex gap-6 overflow-x-auto border-[#4A1E7B] pb-px text-sm font-medium text-[#8737E180] bg-linear-to-r from-[#4A1E7B] to-[#926FA6] bg-size-[100%_3px] bg-bottom bg-no-repeat">
+            <button className="relative whitespace-nowrap pb-3 text-[#926FA6] transition-colors cursor-pointer">
               Recentes
-              <span className="absolute inset-x-0 -bottom-[1px] h-[3px] rounded-full bg-[#6E1FD9]" />
             </button>
-            <button className="pb-3 hover:text-[#3C0070] transition-colors">
+            <button className="whitespace-nowrap pb-3 hover:text-[#3A0659] transition-colors cursor-pointer">
               Sites
             </button>
-            <button className="pb-3 hover:text-[#3C0070] transition-colors">
+            <button className="whitespace-nowrap pb-3 hover:text-[#3A0659] transition-colors cursor-pointer">
               E-Commerces
             </button>
-            <button className="pb-3 hover:text-[#3C0070] transition-colors">
+            <button className="whitespace-nowrap pb-3 hover:text-[#3A0659] transition-colors cursor-pointer">
               Aplicativos
             </button>
           </div>
 
           {/* CONTEÚDO PRINCIPAL */}
-          <div className="grid gap-10 md:grid-cols-2 items-center">
+          <div className="grid gap-12 sm:grid-cols-2 items-center lg:gap-16">
             {/* TEXTO ESQUERDA */}
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-2xl md:text-3xl font-semibold text-[#2D0056]">
+            <div className="space-y-7">
+              <div className="space-y-4">
+                <h3 className="text-balance text-[clamp(1.5rem,2vw,2.2rem)] font-semibold leading-tight text-[#3A0659]">
                   Plataforma de E-learning Interativa
                 </h3>
-                <p className="mt-3 text-sm md:text-base text-[#4E3A6E] leading-relaxed">
+                <p className="text-pretty text-base text-[#926FA6] leading-relaxed max-w-xs xl:max-w-md">
                   Desenvolvemos uma plataforma completa de ensino online com
                   sistema de gamificação, videoaulas e acompanhamento de
                   progresso em tempo real. O projeto integra IA para
@@ -230,7 +157,7 @@ export default function Home() {
 
               {/* TAGS */}
               <div className="space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#7C659D]">
+                <p className="text-sm font-semibold tracking-widest text-[#926FA6]">
                   Tecnologias utilizadas
                 </p>
                 <div className="flex flex-wrap gap-3">
@@ -238,7 +165,7 @@ export default function Home() {
                     (tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-[#2F0A63] px-4 py-2 text-xs font-medium text-white"
+                        className="rounded-full bg-[#3A0659] px-4 py-2 text-xs font-medium text-white"
                       >
                         {tag}
                       </span>
@@ -246,21 +173,22 @@ export default function Home() {
                   )}
                 </div>
               </div>
-
-              {/* BOTÃO */}
-              <button className="mt-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#7B2BFF] to-[#C044FF] px-8 py-3 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(77,19,158,0.35)] hover:brightness-110 transition">
-                Ver case completo
-              </button>
+              <div className=" flex justify-center md:block">
+                {/* BOTÃO */}
+                <button className="inline-flex items-center justify-center rounded-full bg-linear-to-r from-[#8737E1] to-[#4A1E7B] px-20 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(77,19,158,0.3)] hover:shadow-[0_16px_32px_rgba(77,19,158,0.4)] hover:brightness-110 transition cursor-pointer">
+                  Ver case completo
+                </button>
+              </div>
             </div>
 
-            {/* MOCKUP DIREITA */}
+            {/* MOCKUP DIREITA (Mantida imagem do Page 1, mas com container melhorado do Page 2) */}
             <div className="flex justify-center md:justify-end">
-              <div className="relative h-[320px] w-[260px] md:h-[360px] md:w-[300px] rounded-3xl bg-[#111111] shadow-[0_30px_60px_rgba(0,0,0,0.5)] overflow-hidden flex items-center justify-center">
+              <div className="relative h-80 w-[260px] md:h-[380px] md:w-[500px] rounded-3xl bg-[#111111] shadow-[0_30px_60px_rgba(0,0,0,0.5)] overflow-hidden flex items-center justify-center">
                 <Image
-                  src="/cases/elearning-mockup.png"
+                  src="/cases/elearning-mockup.png" // Caminho Page 1
                   alt="Mockup do aplicativo de E-learning"
                   fill
-                  className="object-contain p-6"
+                  className="object-fit"
                 />
               </div>
             </div>
@@ -270,45 +198,47 @@ export default function Home() {
 
       {/* QUARTA SESSÃO – O QUE ENTREGAMOS */}
       <section
-        className="w-full py-16 md:py-20 bg-[#2B0050] text-white"
+        className="w-full py-16 md:py-24 bg-[#2B0050] text-white"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
           backgroundSize: "120px 120px",
         }}
       >
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 md:px-6 lg:px-0">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 md:px-8">
           {/* TÍTULO */}
-          <header className="text-center space-y-2">
-            <h2 className="text-3xl md:text-4xl font-extrabold">
+          <header className="text-center space-y-3">
+            <h2 className="text-balance text-[clamp(1.875rem,4.5vw,2.75rem)] font-extrabold leading-tight">
               O que entregamos
             </h2>
-            <p className="text-sm md:text-base text-[#E9D7FF]">
+            <p className="mx-auto max-w-2xl text-balance text-base text-[#E9D7FF] leading-relaxed">
               Soluções completas que cobrem todas as etapas do seu projeto
               digital.
             </p>
           </header>
 
-          {/* CARDS */}
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {/* CARDS (Com Hover e Animações do Page 2, mas Imagens do Page 1) */}
+          <div className="grid gap-6 text-center sm:text-left grid-cols-2 lg:grid-cols-4">
             {/* CARD 1 */}
-            <article className="flex flex-col overflow-hidden rounded-3xl bg-[#FDF9F5] text-[#2A0243] shadow-[0_18px_40px_rgba(0,0,0,0.35)]">
-              <div className="relative h-36 w-full overflow-hidden">
+            <article className="group flex flex-col overflow-hidden rounded-3xl bg-[#FDF9F5] text-[#3A0659] shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition-transform hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+              <div className="relative h-40 w-full overflow-hidden">
                 <Image
-                  src="/services/design-marca.jpg"
+                  src="/services/design-marca.jpg" // Caminho Page 1
                   alt="Design de Marca"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-              <div className="flex flex-1 flex-col gap-4 px-5 pb-6 pt-5">
-                <h3 className="text-sm font-semibold">Design de Marca</h3>
-                <p className="text-xs leading-relaxed text-[#4E3A6E]">
+              <div className="flex flex-1 flex-col gap-4 p-6">
+                <h3 className="text-2xl font-semibold leading-tight">
+                  Design de Marca
+                </h3>
+                <p className="sm:text-2xl leading-relaxed text-[#6B6B6B]">
                   Criamos identidades visuais únicas e memoráveis que
                   representam a essência do seu negócio.
                 </p>
                 <div className="mt-auto">
-                  <button className="w-full rounded-full bg-gradient-to-r from-[#FF7A29] to-[#FFB445] px-4 py-2 text-xs font-semibold text-white shadow-[0_12px_24px_rgba(255,122,41,0.6)] hover:brightness-110 transition">
+                  <button className="w-full rounded-full bg-linear-to-b from-[#FF7A29] to-[#FFB445] px-4 py-2.5 text-sm sm:text-xl font-semibold text-white shadow-[0_12px_24px_rgba(255,122,41,0.6)] hover:brightness-110 transition cursor-pointer">
                     Saiba mais
                   </button>
                 </div>
@@ -316,23 +246,25 @@ export default function Home() {
             </article>
 
             {/* CARD 2 */}
-            <article className="flex flex-col overflow-hidden rounded-3xl bg-[#FDF9F5] text-[#2A0243] shadow-[0_18px_40px_rgba(0,0,0,0.35)]">
-              <div className="relative h-36 w-full overflow-hidden">
+            <article className="group flex flex-col overflow-hidden rounded-3xl bg-[#FDF9F5] text-[#3A0659] shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition-transform hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+              <div className="relative h-40 w-full overflow-hidden">
                 <Image
-                  src="/services/ux-ui.jpg"
+                  src="/services/ux-ui.jpg" // Caminho Page 1
                   alt="UX/UI Design"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-              <div className="flex flex-1 flex-col gap-4 px-5 pb-6 pt-5">
-                <h3 className="text-sm font-semibold">UX/UI Design</h3>
-                <p className="text-xs leading-relaxed text-[#4E3A6E]">
+              <div className="flex flex-1 flex-col gap-4 p-6">
+                <h3 className="text-2xl font-semibold leading-tight">
+                  UX/UI Design
+                </h3>
+                <p className="sm:text-2xl leading-relaxed text-[#6B6B6B]">
                   Interfaces intuitivas e experiências de usuário que convertem
                   visitantes em clientes.
                 </p>
                 <div className="mt-auto">
-                  <button className="w-full rounded-full bg-gradient-to-r from-[#FF7A29] to-[#FFB445] px-4 py-2 text-xs font-semibold text-white shadow-[0_12px_24px_rgba(255,122,41,0.6)] hover:brightness-110 transition">
+                  <button className="w-full rounded-full bg-linear-to-b from-[#FF7A29] to-[#FFB445] px-4 py-2.5 text-sm sm:text-xl font-semibold text-white shadow-[0_12px_24px_rgba(255,122,41,0.6)] hover:brightness-110 transition cursor-pointer">
                     Saiba mais
                   </button>
                 </div>
@@ -340,25 +272,25 @@ export default function Home() {
             </article>
 
             {/* CARD 3 */}
-            <article className="flex flex-col overflow-hidden rounded-3xl bg-[#FDF9F5] text-[#2A0243] shadow-[0_18px_40px_rgba(0,0,0,0.35)]">
-              <div className="relative h-36 w-full overflow-hidden">
+            <article className="group flex flex-col overflow-hidden rounded-3xl bg-[#FDF9F5] text-[#3A0659] shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition-transform hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+              <div className="relative h-40 w-full overflow-hidden">
                 <Image
-                  src="/services/landing-sites.jpg"
+                  src="/services/landing-sites.jpg" // Caminho Page 1
                   alt="Landing Pages & Sites"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-              <div className="flex flex-1 flex-col gap-4 px-5 pb-6 pt-5">
-                <h3 className="text-sm font-semibold">
+              <div className="flex flex-1 flex-col gap-4 p-6">
+                <h3 className="text-2xl font-semibold leading-tight">
                   Landing Pages &amp; Sites
                 </h3>
-                <p className="text-xs leading-relaxed text-[#4E3A6E]">
+                <p className="sm:text-2xl leading-relaxed text-[#6B6B6B]">
                   Páginas otimizadas para conversão, responsivas e com
                   performance excepcional.
                 </p>
                 <div className="mt-auto">
-                  <button className="w-full rounded-full bg-gradient-to-r from-[#FF7A29] to-[#FFB445] px-4 py-2 text-xs font-semibold text-white shadow-[0_12px_24px_rgba(255,122,41,0.6)] hover:brightness-110 transition">
+                  <button className="w-full rounded-full bg-linear-to-b from-[#FF7A29] to-[#FFB445] px-4 py-2.5 text-sm sm:text-xl font-semibold text-white shadow-[0_12px_24px_rgba(255,122,41,0.6)] hover:brightness-110 transition cursor-pointer">
                     Saiba mais
                   </button>
                 </div>
@@ -366,23 +298,25 @@ export default function Home() {
             </article>
 
             {/* CARD 4 */}
-            <article className="flex flex-col overflow-hidden rounded-3xl bg-[#FDF9F5] text-[#2A0243] shadow-[0_18px_40px_rgba(0,0,0,0.35)]">
-              <div className="relative h-36 w-full overflow-hidden">
+            <article className="group flex flex-col overflow-hidden rounded-3xl bg-[#FDF9F5] text-[#3A0659] shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition-transform hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+              <div className="relative h-40 w-full overflow-hidden">
                 <Image
-                  src="/services/sistemas-complexos.jpg"
+                  src="/services/sistemas-complexos.jpg" // Caminho Page 1
                   alt="Sistemas Complexos"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-              <div className="flex flex-1 flex-col gap-4 px-5 pb-6 pt-5">
-                <h3 className="text-sm font-semibold">Sistemas Complexos</h3>
-                <p className="text-xs leading-relaxed text-[#4E3A6E]">
+              <div className="flex flex-1 flex-col gap-4 p-6">
+                <h3 className="text-2xl font-semibold leading-tight">
+                  Sistemas Complexos
+                </h3>
+                <p className="sm:text-2xl leading-relaxed text-[#6B6B6B]">
                   Aplicativos e plataformas robustas, escaláveis e preparadas
                   para o crescimento.
                 </p>
                 <div className="mt-auto">
-                  <button className="w-full rounded-full bg-gradient-to-r from-[#FF7A29] to-[#FFB445] px-4 py-2 text-xs font-semibold text-white shadow-[0_12px_24px_rgba(255,122,41,0.6)] hover:brightness-110 transition">
+                  <button className="w-full rounded-full bg-linear-to-b from-[#FF7A29] to-[#FFB445] px-4 py-2.5 text-sm sm:text-xl font-semibold text-white shadow-[0_12px_24px_rgba(255,122,41,0.6)] hover:brightness-110 transition cursor-pointer">
                     Saiba mais
                   </button>
                 </div>
@@ -392,8 +326,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* QUINTA SESSÃO */}
+      {/* QUINTA SESSÃO (Mantida Isolada) */}
       <QuintaSessao />
+
+      {/* SEXTA SESSÃO - CONTATO (NOVA - Copiada do Page 2) */}
+      <section className="w-full bg-[#2B0050] px-4 py-16 text-white md:px-8 md:py-24">
+        <div className="mx-auto grid w-full max-w-7xl gap-12 grid-cols-1 sm:grid-cols-2 lg:gap-16">
+          {/* COLUNA ESQUERDA - INFORMAÇÕES */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h2 className="text-[clamp(1.875rem,4.5vw,3rem)] font-bold leading-tight">
+                Vamos conversar sobre seu projeto?
+              </h2>
+              <p className="max-w-lg text-2xl leading-relaxed text-[#E9D7FF]">
+                Estamos prontos para transformar sua visão em realidade. Entre
+                em contato e descubra como podemos ajudar seu negócio a crescer.
+              </p>
+            </div>
+
+            {/* CONTATOS */}
+            <div className="space-y-5">
+              <div>
+                <h3 className="text-lg text-foreground">Email</h3>
+                <span className="font-medium text-2xl">
+                  contato@voskofe.com
+                </span>
+              </div>
+
+              <div>
+                <h3 className="text-lg text-foreground">Telefone</h3>
+                <span className="font-medium text-2xl">(11) 99999-9999</span>
+              </div>
+            </div>
+
+            {/* REDES SOCIAIS */}
+            <div className="space-y-5 mt-20">
+              <h3>Siga-nos nas rede sociais</h3>
+              <div className="flex gap-5">
+                <button className="cursor-pointer">
+                  <Image
+                    alt="Instagram"
+                    width="53"
+                    height="53"
+                    src="/insta.svg"
+                  />
+                </button>
+                <button className="cursor-pointer">
+                  <Image
+                    alt="LinkedIn"
+                    width="53"
+                    height="53"
+                    src="/linkedin.svg"
+                  />
+                </button>
+                <button className="cursor-pointer">
+                  <Image
+                    alt="Facebook"
+                    width="53"
+                    height="53"
+                    src="/facebook.svg"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+          <ContactForm />
+        </div>
+      </section>
     </main>
   );
 }
