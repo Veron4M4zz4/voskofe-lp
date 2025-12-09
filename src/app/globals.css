@@ -5,6 +5,7 @@
   --foreground: #171717;
   --purple-primary: #3a0659;
   --white-primary: #f5f3ed;
+  --white-label: #f3f3f5;
   --yellow-primary: #ffc05c;
   --orange-primary: #f24405;
   --white-secondary: #bebebe;
@@ -17,6 +18,7 @@
 
   --color-purple-primary: var(--purple-primary);
   --color-white-primary: var(--white-primary);
+  --color-white-label: var(--white-label);
   --color-yellow-primary: var(--yellow-primary);
   --color-orange-primary: var(--orange-primary);
   --color-white-secondary: var(--white-secondary);

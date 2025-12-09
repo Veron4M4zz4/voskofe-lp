@@ -4,12 +4,12 @@ export default function ContactForm() {
       {/* Container Principal (Card) */}
       <div className="w-full max-w-[515px] rounded-[28px] p-6 bg-foreground sm:p-8 shadow-[0px_23px_29px_-5px_rgba(0,0,0,0.1)]">
         <form className="flex flex-col gap-3">
+
           {/* Campo Nome */}
           <div className="flex flex-col gap-1">
             <label
               htmlFor="name"
-              className="font-semibold text-sm font-['Georama']"
-              style={{ color: "var(--color-purple-primary)" }}
+              className="font-semibold text-sm font-['Georama'] text-[var(--color-purple-primary)]"
             >
               Nome *
             </label>
@@ -17,14 +17,7 @@ export default function ContactForm() {
               id="name"
               type="text"
               placeholder="Seu nome completo"
-              className="w-full h-10 px-4 rounded-[9px] border-none outline-none focus:ring-2 focus:ring-opacity-50 transition-all placeholder:opacity-60 text-sm"
-              style={
-                {
-                  backgroundColor: "#F3F3F5", // Cor atualizada
-                  color: "var(--color-purple-primary)",
-                  "--tw-ring-color": "var(--color-purple-primary)",
-                } as React.CSSProperties
-              }
+              className="w-full h-10 px-4 rounded-[9px] border-none outline-none focus:ring-2 focus:ring-opacity-50 transition-all placeholder:opacity-60 text-sm bg-[var(--white-label)] text-[var(--color-purple-primary)] focus:ring-[var(--color-purple-primary)]"
             />
           </div>
 
@@ -32,8 +25,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-1">
             <label
               htmlFor="email"
-              className="font-semibold text-sm font-['Georama']"
-              style={{ color: "var(--color-purple-primary)" }}
+              className="font-semibold text-sm font-['Georama'] text-[var(--color-purple-primary)]"
             >
               Email *
             </label>
@@ -41,14 +33,7 @@ export default function ContactForm() {
               id="email"
               type="email"
               placeholder="seu@email.com"
-              className="w-full h-10 px-4 rounded-[9px] border-none outline-none focus:ring-2 focus:ring-opacity-50 transition-all placeholder:opacity-60 text-sm"
-              style={
-                {
-                  backgroundColor: "#F3F3F5", // Cor atualizada
-                  color: "var(--color-purple-primary)",
-                  "--tw-ring-color": "var(--color-purple-primary)",
-                } as React.CSSProperties
-              }
+              className="w-full h-10 px-4 rounded-[9px] border-none outline-none focus:ring-2 focus:ring-opacity-50 transition-all placeholder:opacity-60 text-sm bg-[var(--white-label)] text-[var(--color-purple-primary)] focus:ring-[var(--color-purple-primary)]"
             />
           </div>
 
@@ -56,8 +41,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-1">
             <label
               htmlFor="company"
-              className="font-semibold text-sm font-['Georama']"
-              style={{ color: "var(--color-purple-primary)" }}
+              className="font-semibold text-sm font-['Georama'] text-[var(--color-purple-primary)]"
             >
               Empresa
             </label>
@@ -65,14 +49,7 @@ export default function ContactForm() {
               id="company"
               type="text"
               placeholder="Nome da sua empresa"
-              className="w-full h-10 px-4 rounded-[9px] border-none outline-none focus:ring-2 focus:ring-opacity-50 transition-all placeholder:opacity-60 text-sm"
-              style={
-                {
-                  backgroundColor: "#F3F3F5", // Cor atualizada
-                  color: "var(--color-purple-primary)",
-                  "--tw-ring-color": "var(--color-purple-primary)",
-                } as React.CSSProperties
-              }
+              className="w-full h-10 px-4 rounded-[9px] border-none outline-none focus:ring-2 focus:ring-opacity-50 transition-all placeholder:opacity-60 text-sm bg-[var(--white-label)] text-[var(--color-purple-primary)] focus:ring-[var(--color-purple-primary)]"
             />
           </div>
 
@@ -80,23 +57,15 @@ export default function ContactForm() {
           <div className="flex flex-col gap-1">
             <label
               htmlFor="service"
-              className="font-semibold text-sm font-['Georama']"
-              style={{ color: "var(--color-purple-primary)" }}
+              className="font-semibold text-sm font-['Georama'] text-[var(--color-purple-primary)]"
             >
               Serviço de interesse
             </label>
             <div className="relative">
               <select
                 id="service"
-                className="w-full h-10 px-4 rounded-[9px] border-none outline-none appearance-none cursor-pointer focus:ring-2 focus:ring-opacity-50 transition-all text-sm"
                 defaultValue=""
-                style={
-                  {
-                    backgroundColor: "#F3F3F5", // Cor atualizada
-                    color: "var(--color-purple-primary)",
-                    "--tw-ring-color": "var(--color-purple-primary)",
-                  } as React.CSSProperties
-                }
+                className="w-full h-10 px-4 rounded-[9px] border-none outline-none focus:ring-2 focus:ring-opacity-50 transition-all text-sm bg-[var(--white-label)] text-[var(--color-purple-primary)] focus:ring-[var(--color-purple-primary)] appearance-none cursor-pointer"
               >
                 <option value="" disabled className="opacity-60">
                   Selecione um serviço
@@ -123,34 +92,21 @@ export default function ContactForm() {
           <div className="flex flex-col gap-1">
             <label
               htmlFor="message"
-              className="font-semibold text-sm font-['Georama']"
-              style={{ color: "var(--color-purple-primary)" }}
+              className="font-semibold text-sm font-['Georama'] text-[var(--color-purple-primary)]"
             >
               Mensagem
             </label>
             <textarea
               id="message"
               placeholder="Conte-nos mais sobre seu projeto..."
-              className="w-full h-24 p-3 rounded-[9px] border-none outline-none resize-none focus:ring-2 focus:ring-opacity-50 transition-all placeholder:opacity-60 text-sm"
-              style={
-                {
-                  backgroundColor: "#F3F3F5", // Cor atualizada
-                  color: "var(--color-purple-primary)",
-                  "--tw-ring-color": "var(--color-purple-primary)",
-                } as React.CSSProperties
-              }
+              className="w-full h-24 p-3 rounded-[9px] border-none outline-none focus:ring-2 focus:ring-opacity-50 transition-all placeholder:opacity-60 text-sm bg-[var(--white-label)] text-[var(--color-purple-primary)] focus:ring-[var(--color-purple-primary)] resize-none"
             />
           </div>
 
           {/* Botão de Enviar */}
           <button
             type="submit"
-            className="w-full h-12 rounded-full text-white font-semibold text-base flex items-center justify-center gap-2 shadow-lg hover:opacity-90 transition-opacity mt-1"
-            style={{
-              background:
-                "linear-gradient(266.29deg, #4A1E7B 19.49%, #8737E1 110.54%)",
-              boxShadow: "0px 4px 23px rgba(0, 0, 0, 0.3)",
-            }}
+            className="w-full h-12 rounded-full text-white font-semibold text-base flex items-center justify-center gap-2 hover:opacity-90 transition-opacity mt-1 bg-[linear-gradient(266.29deg,#4A1E7B_19.49%,#8737E1_110.54%)] shadow-[0px_4px_23px_rgba(0,0,0,0.3)]"
           >
             <img src="/send.svg" alt="Ícone enviar" className="w-4 h-4" />
             Enviar mensagem
